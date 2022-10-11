@@ -1,0 +1,57 @@
+
+
+// ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩
+// DO NOT ALTER THE TEXT BETWEEN THESE LINES =========={M{E{R{L{I{N{1}N}I}L}R}E}M}=====================================
+let unsortedIntegers = [5, 1, 4, 2, 8]
+// DO NOT ALTER THE TEXT BETWEEN THESE LINES =========={M{E{R{L{I{N{1}N}I}L}R}E}M}=====================================
+// ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧
+
+
+// Add your code below:
+
+
+var tempArray = unsortedIntegers 
+var totalSwaps = 0 
+var numSwaps = 0
+var Passes = 0
+
+
+func Swap(integers: inout [Int], index1: Int, index2: Int) {
+    let Int1 = integers[index1]
+    let Int2 = integers[index2]
+
+    integers[index1] = Int2
+    integers[index2] = Int1
+    
+    numSwaps += 1
+
+}
+
+func insertion(integers: inout [Int]) {
+    
+    for index in 0..<integers.count {
+        
+        var swapIndex = index
+        
+        numSwaps = 0
+
+        while swapIndex > 0 {
+            if integers[swapIndex] < integers[swapIndex - 1] {
+                Swap(integers: &integers, index1: swapIndex, index2: swapIndex - 1)
+
+                swapIndex -= 1
+                totalSwaps += 1
+            } else {
+                
+                break
+            }
+        }
+        print("Pass: \(Passes), Swaps: \(numSwaps)/\(totalSwaps), Array: \(integers)")
+
+        Passes += 1
+    }
+}
+
+insertion(integers: &tempArray)
+
+
